@@ -86,11 +86,59 @@ iframe, video {
 ***************************************************
 ***************************************************/
 
+:root{
+  --header-height: 3.5rem
 
-.lora-<uniquifier> {
-  font-family: "Lora", serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+  /* ========== Colors ==========*/
+
+  --black-color: #000;
+  --black-color-light: hsl(222, 15%, 17%);
+  --black-color-lighten: hsl(223, 5%, 30%);
+  --white-color: #fff;
+  --body-color: hsla(68, 100%, 94%, 0.711);
+  --primary-color: rgb(34, 221, 205);
+  --secondary-color: rgb(30, 28, 142);
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+
+  /*========== z index ==========*/
+  --z-tooltip: 10;
+  --z-fixed: 100;
 }
 
+body{
+  font-size: 16px;
+  font-family: "Lora", sans-serif;
+  background-color: var(--body-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: lato, sans-serif;
+}
+
+p {
+  font-size: 16px;
+}
+
+small {
+  font-size: 0.8rem;
+}
+
+strong {
+  font-weight: var(--font-semi-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: var(--secondary-color);
+}
+
+a:hover, a:active, a.active {
+  color: var(--primary-color);  
+}
