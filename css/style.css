@@ -92,6 +92,7 @@ iframe, video {
   /* ========== Colors ==========*/
 
   --black-color: #000;
+  --black-color:#000;
   --black-color-light: hsl(222, 15%, 17%);
   --black-color-lighten: hsl(223, 5%, 30%);
   --white-color: #fff;
@@ -209,4 +210,47 @@ h3{
   max-width: 1680px;
   margin: 0 auto;
   padding: 0 16px;
+}
+
+.navBurger, .navClose {
+  color: #000;
+}
+
+.navAction {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#headerLogo {
+  display: inline-flex;
+  align-items: center;
+  column-gap: .25rem;
+}
+
+#headerLogo img{
+  width: 6rem;
+}
+
+.nav__toggle {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.nav__burger, 
+.nav__close {
+  position: absolute;
+  width: max-content;
+  height: max-content;
+  inset: 0;
+  margin: auto;
+  font-size: 1.25rem;
+  cursor: pointer;
+  transition: opacity .1s, transform .4s;
+}
+
+.nav__close {
+  opacity: 0;
 }
