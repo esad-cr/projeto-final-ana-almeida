@@ -85,3 +85,12 @@ iframe, video {
 *** O SEU CÓDIGO COMEÇA DEPOIS DESTE COMENTÁRIO ***
 ***************************************************
 ***************************************************/
+
+
+.lora-<uniquifier> {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
+
