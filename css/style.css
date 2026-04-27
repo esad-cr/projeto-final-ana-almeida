@@ -142,3 +142,50 @@ a {
 a:hover, a:active, a.active {
   color: var(--primary-color);  
 }
+
+/*========== largura dos elemento que compoem o body ==========*/
+
+.pageWidth {
+  width: 100%;
+  max-width: 1680px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+/*========== Definição da tipografia para mobile ==========*/
+
+h1{
+  font-size: 2.986rem;
+  font-weight: 700;
+  letter-spacing: 0.22rem;
+  line-height: 1.5;
+}
+
+h2{
+  font-size: 2.488rem;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+h3{
+  font-size: 2.074rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/*========== Definição da tipografia para desktop ==========*/
+
+@media (min-width: 992px) {
+  h1{
+    font-size: 7.993rem;
+  }
+
+  h2{
+    font-size: 5.653rem;
+  }
+
+  h3{
+    font-size: 3.998rem;
+  }
+}
+
