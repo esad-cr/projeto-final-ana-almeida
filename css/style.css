@@ -292,3 +292,67 @@ h3{
 .nav__link:hover {
   color: var(--primary-color);
 }
+
+/* Show menu */
+.show-menu {
+  opacity: 1;
+  top: 3.5rem;
+  pointer-events: initial;
+}
+
+/* Show icon */
+.show-icon .nav__burger {
+  opacity: 0;
+  transform: rotate(90deg);
+}
+.show-icon .nav__close {
+  opacity: 1;
+  transform: rotate(90deg);
+}
+
+/* Navigation for large devices */
+@media screen and (min-width: 992px) {
+  #topHeader {
+    margin-inline: auto;
+  }
+
+  #mainMenu {
+    height: calc(var(--header-height) + 2rem);
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav__toggle {
+    display: none;
+  }
+  .nav__list {
+    height: 100%;
+    display: flex;
+    column-gap: 3rem;
+  }
+  .nav__link {
+    height: 100%;
+    padding: 0;
+    justify-content: initial;
+    column-gap: .25rem;
+  }
+  .nav__link:hover {
+    background-color: transparent;
+  }
+}
+
+/****************************************
+************* mainContent ***************
+****************************************/
+
+#mainContent {
+  margin-top:var(--header-height)!important;
+}
+
+/****************************************
+************* mainFooter ***************
+****************************************/
+
+#mainFooter {
+  padding: 20px;
+  text-align: center;
+}
