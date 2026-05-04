@@ -228,9 +228,14 @@ h3{
   align-items: center;
   column-gap: .25rem;
 }
+#headerLogo a{
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+}
 
 #headerLogo img{
-  width: 6rem;
+  width: 3rem;
 }
 
 .nav__toggle {
@@ -267,13 +272,12 @@ h3{
     overflow: auto;
     pointer-events: none;
     opacity: 0;
-    transition: top .4s, opacity .3s;
+    transition: height .4s, opacity .3s;
   }
   .nav__menu::-webkit-scrollbar {
     width: 0;
   }
   .nav__list {
-    background-color: var(--white-color);
     padding-top: 1rem;
   }
 }
@@ -329,30 +333,14 @@ h3{
     display: flex;
     column-gap: 3rem;
   }
-  .nav__link {
+
+  .nav__link{
     height: 100%;
     padding: 0;
     justify-content: initial;
     column-gap: .25rem;
   }
-  .nav__link:hover {
+
+  .nav__link:hover{
     background-color: transparent;
   }
-}
-
-/****************************************
-************* mainContent ***************
-****************************************/
-
-#mainContent {
-  margin-top:var(--header-height)!important;
-}
-
-/****************************************
-************* mainFooter ***************
-****************************************/
-
-#mainFooter {
-  padding: 20px;
-  text-align: center;
-}
