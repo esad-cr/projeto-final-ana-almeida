@@ -99,6 +99,7 @@ iframe, video {
   --body-color: hsla(68, 100%, 94%, 0.711);
   --primary-color: rgb(34, 221, 205);
   --secondary-color: rgb(30, 28, 142);
+  --third-color: rgb(50, 5, 42);
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -155,39 +156,77 @@ a:hover, a:active, a.active {
 
 /*========== Definição da tipografia para mobile ==========*/
 
-h1{
+h1, .h1{
   font-size: 2.986rem;
   font-weight: 700;
   letter-spacing: 0.22rem;
   line-height: 1.5;
 }
 
-h2{
+h2, .h2{
   font-size: 2.488rem;
   font-weight: 700;
   line-height: 1.15;
 }
 
-h3{
+h3, .h3{
   font-size: 2.074rem;
   font-weight: 500;
   line-height: 1;
 }
 
+h4, .h4{
+    font-size: 1.728rem;
+  }
+
+h5, .h5{
+  font-size: 1.44rem;
+}
+
+h6, .h6{
+   font-size: 1.2rem;
+}
+
 /*========== Definição da tipografia para desktop ==========*/
 
 @media (min-width: 992px) {
-  h1{
+  h1, .h1{
     font-size: 7.993rem;
   }
 
-  h2{
+  h2, .h2{
     font-size: 5.653rem;
   }
 
-  h3{
+  h3, .h3{
     font-size: 3.998rem;
   }
+  
+  h4, .h4{
+    font-size: 2.2827rem;
+  }
+
+  h5, .h5{
+    font-size: 1.9999rem;
+  }
+
+  h6, .h6{
+    font-size: 1.414rem;
+  }
+}
+
+/***** Utilidades ******/
+
+.text_center {
+  text-align: center;
+}
+
+.white_text {
+  color: var(--black-color);
+}
+
+.invert_filter {
+  filter: invert(1);
 }
 
 /*==================== Menu de Navegação ====================*/
@@ -356,6 +395,105 @@ h3{
     margin-top: calc(var(--header-height)+2rem);
   }
  }
+
+/******************** Cards ********************/
+
+.container {
+  --gap: 0;
+  padding: 2rem;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.box_shadow {
+  box-shadow: 3px 3px 15px 2px rgba(0, 0, 0, 52);
+}
+
+.box_radius {
+  border-radius: 8px;
+}
+
+.flex_column {
+  flex-direction: column;
+  margin-left: auto;
+}
+
+/******************** Definir as backgrounds-colors ********************/
+
+.bg-primary-color {
+  background-color: var(--primary-color);
+}
+
+.bg-secondary-color {
+  background-color: var(--secondary-color);
+}
+
+.bg-third-color {
+  background-color: var(--third-color);
+}
+
+/******************** articles - estilo do card ********************/
+
+.container article:first-child {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+}
+
+.container article:last-child {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+
+.container article {
+  --gap: 2em;
+  line-height: 1.5;
+  padding: 3em;
+}
+
+.container article > Img {
+  width: 4rem;
+}
+
+/******************** botões ********************/
+
+.learn-more-button {
+  border: none;
+  border-radius: 40px;
+  letter-spacing: 1px;
+  padding-block: 0.79em;
+  padding-inline: 2.3em;
+  margin: auto;
+  margin-top: 3em;
+  transition: background-color 200ms ease-in-out;
+}
+
+.learn-more-button:hover{
+  background-color: inherit;
+  outline: 2px solid var(--white-color);
+  color: var(--white-color);
+}
+
+@media screen and (max-widht: 992px) {
+  .container .flex {
+    flex-direction: column;
+    max-width: 100%;
+    min-width: 90%;
+  }
+  .container article:first-child {
+    border-radius: 0;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .container article:last-child {
+    border-radius: 0;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+  }
+}
+
 /******************** mainFooter ********************/
 
 #mainFooter {
