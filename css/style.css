@@ -356,6 +356,47 @@ h3{
     margin-top: calc(var(--header-height)+2rem);
   }
  }
+
+/******************** HeroSection 2 ********************/
+
+.hero{
+  height: 90vh;
+  background-image: url('../Imagens/Renders/Exterior\ 02\ copy.jpg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h1.hero-heading {
+  width: 70%;
+  text-align: center;
+  line-height: 100px;
+  margin-top: 150px;
+  color: var(--black-color);
+}
+
+.hero-description {
+  margin-top: 40px;
+  color: var(--white-color);
+}
+
+.button-large {
+  color: var(--white-color);
+  background-color: var(--primary-color);
+  border: none;
+  padding: 15px 40px;
+  border-radius: 10px;
+  margin-top: 40px;
+}
+
+.button-large:hover {
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
 /******************** mainFooter ********************/
 
 #mainFooter {
