@@ -138,7 +138,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--secondary-color);
+  color: var(--secundary-color);
 }
 
 a:hover, a:active, a.active {
@@ -481,6 +481,9 @@ h6, .h6{
     flex-direction: column;
     max-width: 100%;
     min-width: 90%;
+  }
+  .container article {
+    width: 100%;
   }
   .container article:first-child {
     border-radius: 0;
