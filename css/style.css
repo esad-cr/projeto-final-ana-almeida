@@ -87,11 +87,10 @@ iframe, video {
 ***************************************************/
 
 :root{
-  --header-height: 3.5rem
+  --header-height: 2rem;
 
   /* ========== Colors ==========*/
 
-  --black-color: #000;
   --black-color:#000;
   --black-color-light: hsl(222, 15%, 17%);
   --black-color-lighten: hsl(223, 5%, 30%);
@@ -344,16 +343,16 @@ h3{
   .nav__link:hover{
     background-color: transparent;
   }
-
+}
 /******************** mainContent ********************/
 
 #mainContent {
   margin-top:var(--header-height)!important;
 }
 
- @media screen and (min-widht: 992px) {
+ @media screen and (min-width: 992px) {
   #mainContent{
-    margin-top: calc(var(--header-height)+2rem);
+    margin-top: calc(var(--header-height)+4rem);
   }
  }
 /******************** mainFooter ********************/
