@@ -87,11 +87,10 @@ iframe, video {
 ***************************************************/
 
 :root{
-  --header-height: 3.5rem
+  --header-height: 3.5rem;
 
   /* ========== Colors ==========*/
 
-  --black-color: #000;
   --black-color:#000;
   --black-color-light: hsl(222, 15%, 17%);
   --black-color-lighten: hsl(223, 5%, 30%);
@@ -383,16 +382,16 @@ h6, .h6{
   .nav__link:hover{
     background-color: transparent;
   }
-
+}
 /******************** mainContent ********************/
 
 #mainContent {
   margin-top:var(--header-height)!important;
 }
 
- @media screen and (min-widht: 992px) {
+ @media screen and (min-width: 992px) {
   #mainContent{
-    margin-top: calc(var(--header-height)+2rem);
+    margin-top: calc(var(--header-height)+4rem);
   }
  }
 
@@ -412,7 +411,7 @@ h6, .h6{
   box-shadow: 3px 3px 15px 2px rgba(0, 0, 0, 52);
 }
 
-.box_radius {
+.border_radius {
   border-radius: 8px;
 }
 
@@ -476,7 +475,7 @@ h6, .h6{
   color: var(--white-color);
 }
 
-@media screen and (max-widht: 992px) {
+@media screen and (max-width: 992px) {
   .container .flex {
     flex-direction: column;
     max-width: 100%;
