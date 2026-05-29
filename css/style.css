@@ -410,7 +410,7 @@ h6, .h6{
 }
 
 .box_shadow {
-  box-shadow: 3px 3px 15px 2px rgba(0, 0, 0, 52);
+  box-shadow: 3px 3px 15px 2px rgba(0, 0, 0, 0.2);
 }
 
 .border_radius {
@@ -419,7 +419,7 @@ h6, .h6{
 
 .flex_column {
   flex-direction: column;
-  margin-left: auto;
+  /*margin-left: auto;*/
 }
 
 /******************** Definir as backgrounds-colors ********************/
@@ -452,9 +452,10 @@ h6, .h6{
   --gap: 2em;
   line-height: 1.5;
   padding: 3em;
+  flex: 1;
 }
 
-.container article > Img {
+.container article > img {
   width: 4rem;
 }
 
