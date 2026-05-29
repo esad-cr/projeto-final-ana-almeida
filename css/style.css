@@ -95,10 +95,12 @@ iframe, video {
   --black-color-light: hsl(222, 15%, 17%);
   --black-color-lighten: hsl(223, 5%, 30%);
   --white-color: #fff;
-  --body-color: hsla(68, 100%, 94%, 0.711);
+  --body-color: hsla(46, 100%, 97%, 0.711);
   --primary-color: rgb(34, 221, 205);
   --secondary-color: rgb(30, 28, 142);
-  --third-color: rgb(50, 5, 42);
+  --third-color: #A8E6E1;
+  --fourth-color: #B8B8FF;
+  --fifth-color: #E8C4C4;
 
   /*========== Font weight ==========*/
   --font-regular: 400;
@@ -237,7 +239,7 @@ h6, .h6{
   left: 0;
   width: 100%;
   max-width: 100%;
-  background-color: var(--white-color);
+  background-color: var(--body-color);
   box-shadow: 0 2px 16px hsla(220, 32%, 8%, .3);
   z-index: var(--z-fixed);
 }
@@ -322,7 +324,7 @@ h6, .h6{
 
 .nav__link {
   color: var(--secondary-color);
-  background-color: var(--white-color);
+  background-color: var(--body-color);
   font-weight: var(--font-semi-bold);
   padding: 1.25rem 1.5rem;
   display: flex;
@@ -423,15 +425,15 @@ h6, .h6{
 /******************** Definir as backgrounds-colors ********************/
 
 .bg-primary-color {
-  background-color: var(--primary-color);
+  background-color: var(--fourth-color);
 }
 
 .bg-secondary-color {
-  background-color: var(--secondary-color);
+  background-color: var(--third-color);
 }
 
 .bg-third-color {
-  background-color: var(--third-color);
+  background-color: var(--fifth-color);
 }
 
 /******************** articles - estilo do card ********************/
