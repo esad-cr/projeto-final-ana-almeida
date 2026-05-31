@@ -200,7 +200,7 @@ h6, .h6{
   }
 
   h3, .h3{
-    font-size: 3.998rem;
+    font-size: 3rem;
   }
   
   h4, .h4{
@@ -577,6 +577,57 @@ a.learn-more-button {
     .sobre-mim__foto img {
         width: 200px;
         height: 200px;
+    }
+}
+
+/******************** Contactos ********************/
+
+#contactos {
+    padding: 2rem;
+}
+
+.contactos__container {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.contacto__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: var(--fourth-color);
+    padding: 2.5rem 3rem;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 200ms ease-in-out;
+    color: var(--black-color);
+    min-width: 250px;
+    flex: 1;
+    max-width: 350px;
+}
+
+.contacto__card:hover {
+    transform: translateY(-5px);
+    color: var(--black-color);
+}
+
+.contacto__card i {
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width: 992px) {
+    .contactos__container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contacto__card {
+        width: 100%;
+        max-width: 400px;
     }
 }
 
