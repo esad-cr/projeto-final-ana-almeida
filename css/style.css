@@ -396,7 +396,7 @@ h6, .h6{
 
  @media screen and (min-width: 992px) {
   #mainContent{
-    margin-top: calc(var(--header-height)+3rem);
+    margin-top: calc(var(--header-height) + 3rem);
   }
  }
 
@@ -513,6 +513,7 @@ a.learn-more-button {
 
 #sobre-mim {
     padding: 2rem;
+    padding-top: 0rem;
 }
 
 .sobre-mim__container {
@@ -584,6 +585,7 @@ a.learn-more-button {
 
 #contactos {
     padding: 2rem;
+    padding-top: 0rem;
 }
 
 .contactos__container {
