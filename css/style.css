@@ -656,6 +656,7 @@ a.learn-more-button {
     gap: 1rem;
     border-radius: 8px;
     overflow: hidden;
+    background-color: var(--fourth-color);
 }
 
 .projeto__video {
@@ -678,10 +679,6 @@ a.learn-more-button {
     }
 }
 
-#projetos-multimedia .projeto__card {
-    background-color: var(--third-color);
-}
-
 /******************** Design de Espaços ********************/
 
 #projetos-espacos {
@@ -693,10 +690,6 @@ a.learn-more-button {
     width: 100%;
     aspect-ratio: 16/9;
     object-fit: cover;
-}
-
-#projetos-espacos .projeto__card {
-    background-color: var(--fourth-color);
 }
 
 /*=============== Projetos ===============*/
