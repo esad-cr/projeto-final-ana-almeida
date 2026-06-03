@@ -633,6 +633,48 @@ a.learn-more-button {
     }
 }
 
+/******************** Design Gráfico e Multimédia ********************/
+
+#projetos-multimedia {
+    padding: 2rem;
+    padding-top: 0;
+}
+
+.projetos__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.projeto__card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--fourth-color);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.projeto__video {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+.projeto__info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem 1.5rem;
+}
+
+@media screen and (max-width: 992px) {
+    .projetos__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /******************** mainFooter ********************/
 
 #mainFooter {
