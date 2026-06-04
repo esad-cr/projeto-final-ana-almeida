@@ -821,6 +821,39 @@ a.learn-more-button {
   .card__img {
     width: 280px;
   }
+  .card__container--grid .card__img {
+    width: 280px;
+  }
+
+  /* Desativar animações */
+  .card__article:hover .card__data {
+    animation: none;
+    transform: none;
+  }
+  .card__article:hover {
+    animation: none;
+  }
+  .card__article:not(:hover) {
+    animation: none;
+  }
+  .card__article:not(:hover) .card__data {
+    animation: none;
+    transform: none;
+  }
+
+  /* Mostrar texto em baixo da imagem */
+  .card__article {
+    overflow: visible;
+  }
+  .card__data {
+    opacity: 1;
+    position: relative;
+    bottom: auto;
+    width: 100%;
+    box-shadow: none;
+    background-color: transparent;
+    padding: 0.5rem 0;
+  }
 }
 
 /******************** Projetos com filtro ********************/
@@ -863,34 +896,6 @@ a.learn-more-button {
 
 .card__container--grid .card__img {
     width: 400px; 
-}
-
-@media screen and (max-width: 992px) {
-  .card__container {
-    gap: 2rem;
-  }
-  .card__img {
-    width: 280px;
-  }
-
-  .card__article {
-    overflow: visible;
-  }
-
-  .card__data {
-    opacity: 1;
-    position: relative;
-    bottom: auto;
-    width: 100%;
-    box-shadow: none;
-    background-color: transparent;
-    padding: 0.5rem 0;
-  }
-
-  .card__article:not(:hover) .card__data {
-    animation: none;
-    transform: none;
-  }
 }
 
 /******************** Botões Projetos ********************/
