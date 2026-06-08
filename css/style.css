@@ -720,12 +720,15 @@ a.learn-more-button {
 .card__article {
   position: relative;
   overflow: hidden;
+  box-shadow: 3px 3px 15px 2px rgba(0, 0, 0, 0.2);
+  border-radius: 1.5rem;
 }
 
 .card__img {
   width: 100%;
   max-width: 900px;
   border-radius: 1.5rem;
+  display: block;
 }
 
 .card__data {
