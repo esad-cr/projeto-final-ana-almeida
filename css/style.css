@@ -929,7 +929,20 @@ a.learn-more-button {
 
 /******************** Processing ********************/
 
+#p5Canvas {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
 
+.processing__descricao {
+    text-align: center;
+    max-width: 1000px;
+    line-height: 1.5;
+    margin: 1rem auto;
+}
 
 /******************** mainFooter ********************/
 
