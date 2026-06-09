@@ -118,7 +118,8 @@ function preload()
 }
 
 function setup() {
-  var myCanvas = createCanvas(450, 600);
+  let tamanho = min(windowWidth, 450);
+  var myCanvas = createCanvas(tamanho, tamanho + 50);
   myCanvas.parent("p5Canvas");
   angleMode(DEGREES);
   cx = width/2;
@@ -130,6 +131,13 @@ temas = [
   color(255, 108, 136), // Rosa
   color(249, 185, 56)   // Amarelo
   ];
+}
+
+function windowResized() {
+  let tamanho = min(windowWidth, 450);
+  resizeCanvas(tamanho, tamanho + 50);
+  cx = width/2;
+  cy = height/2;
 }
 
 function mousePressed() {
