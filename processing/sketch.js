@@ -117,8 +117,11 @@ function preload()
   logo2 = loadImage ("Batimento.png")
 }
 
+let escala = 1;
+
 function setup() {
   let tamanho = min(windowWidth * 0.9, 450);
+  escala = tamanho / 450;
   var myCanvas = createCanvas(tamanho, tamanho + 50);
   myCanvas.parent("p5Canvas");
   angleMode(DEGREES);
@@ -135,6 +138,7 @@ temas = [
 
 function windowResized() {
   let tamanho = min(windowWidth * 0.9, 450);
+  escala = tamanho / 450;
   resizeCanvas(tamanho, tamanho + 50);
   cx = width/2;
   cy = height/2;
@@ -145,32 +149,27 @@ function mousePressed() {
 }
 
 function draw() {
-  //background(250);
-
-let cx = width / 2;
-let cy = height / 2;
-let raio = 450/2;
+  let cx = width / 2;
+  let cy = height / 2;
+  let raio = (450/2) * escala;
   fill(30,30,30);
   noStroke();
   ellipse(cx, cy, raio * 2);
 
-// Hora
-let h = hour();
-let m = minute();
-  
-let hh = nf(h, 2);
-let mm = nf(m, 2);
-
-let horaTexto = hh + ":" + mm;
+  // Hora
+  let h = hour();
+  let m = minute();
+  let hh = nf(h, 2);
+  let mm = nf(m, 2);
+  let horaTexto = hh + ":" + mm;
   
   fill(234);           
   textAlign(CENTER, CENTER);
-  textSize(80);
-  text(horaTexto, width/2, height/2 - 60);
+  textSize(80 * escala);
+  text(horaTexto, width/2, height/2 - 60 * escala);
 
-// Data
-let num_dia_semana = new Date().getDay();
-  
+  // Data
+  let num_dia_semana = new Date().getDay();
   let nomes_dia_semana = [];
   nomes_dia_semana[0] = "Domingo";
   nomes_dia_semana[1] = "Segunda";
@@ -180,109 +179,102 @@ let num_dia_semana = new Date().getDay();
   nomes_dia_semana[5] = "Sexta";
   nomes_dia_semana[6] = "Sábado";
 
-let dia = day();
-let mes = month();
-let ano = year();
-  
-let textoData = 
-  nomes_dia_semana[num_dia_semana] + ", " + nf(dia, 2) + "/" + nf(mes, 2) + "/" + ano;
+  let dia = day();
+  let mes = month();
+  let ano = year();
+  let textoData = nomes_dia_semana[num_dia_semana] + ", " + nf(dia, 2) + "/" + nf(mes, 2) + "/" + ano;
 
   fill(234);
   textAlign(CENTER, CENTER);
-  textSize(22);
-  text(textoData, width/2, height/2 - 120);
+  textSize(22 * escala);
+  text(textoData, width/2, height/2 - 120 * escala);
 
-// Evento
- 
-let ev = eventoDoMomento();
-let textoEvento;
-if (ev) {
-  textoEvento = ev.nome + " (" + ev.inicio + " - " + ev.fim + ")";
-} else {
-  textoEvento = "Sem mais eventos hoje (--:-- - --:--)";
-}
+  // Evento
+  let ev = eventoDoMomento();
+  let textoEvento;
+  if (ev) {
+    textoEvento = ev.nome + " (" + ev.inicio + " - " + ev.fim + ")";
+  } else {
+    textoEvento = "Sem mais eventos hoje (--:-- - --:--)";
+  }
 
-fill(220);
-textAlign(CENTER, CENTER);
-textSize(22);
-text(textoEvento, width/2, height/2);
+  fill(220);
+  textAlign(CENTER, CENTER);
+  textSize(22 * escala);
+  text(textoEvento, width/2, height/2);
 
-// Arco Exterior 
-cx = width / 2;
-cy = height / 2;
+  // Arco Exterior 
+  let ini = horaParaMin(ev ? ev.inicio : null);
+  let fim = horaParaMin(ev ? ev.fim : null);
+  let agoraMin = hour()*60 + minute();
+
+  let progressoEvent = constrain((agoraMin - ini) / (fim - ini), 0, 1);
+  let anguloReal = progressoEvent * 360;
+  anguloSuave = lerp(anguloSuave, anguloReal, 0.05);
+
+  stroke(temas[temaAtual]);  
+  strokeWeight(15 * escala);
+  noFill();
+  strokeCap(ROUND);
+
+  push();
+  translate(cx, cy);
+  rotate(-90);
+  arc(0, 0, 400 * escala, 400 * escala, 0, anguloSuave);
+  pop();
+
+  // Bateria
+  let bateria = 100;
+  let ultimoUpdate = 0;
   
-let ini = horaParaMin(ev.inicio);
-let fim = horaParaMin(ev.fim);
-let agoraMin = hour()*60 + minute();
-
-let progressoEvent = constrain((agoraMin - ini) / (fim - ini), 0, 1);
-
-let anguloReal = progressoEvent * 360;
-
-anguloSuave = lerp(anguloSuave, anguloReal, 0.05);
-
-stroke(temas[temaAtual]);  
-strokeWeight(15);
-noFill();
-strokeCap(ROUND);
-
-push();
-translate(cx, cy);
-rotate(-90);
-arc(0, 0, 400, 400, 0, anguloSuave);
-pop();
-
-// Bateria
-let bateria = 100;
-let ultimoUpdate = 0;
-  
-if (millis() - ultimoUpdate > 30000) {
-  bateria = max(0, bateria - 2);
-  ultimoUpdate = millis();
-}
+  if (millis() - ultimoUpdate > 30000) {
+    bateria = max(0, bateria - 2);
+    ultimoUpdate = millis();
+  }
 
   fill(255);
   noStroke();
   textAlign(CENTER, CENTER);
-  textSize(18);
-  text(bateria + "%", cx, cy + 175);
+  textSize(18 * escala);
+  text(bateria + "%", cx, cy + 175 * escala);
 
-// Icon e Texto Passos 
-if (passos < 5000 && millis() > tempoProximoPasso) {
-  passos += int(random(1, 4));
-  if (passos > 5000) passos = 5000;
-  tempoProximoPasso = millis() + random(600, 1200); 
-}
+  // Icon e Texto Passos 
+  if (passos < 5000 && millis() > tempoProximoPasso) {
+    passos += int(random(1, 4));
+    if (passos > 5000) passos = 5000;
+    tempoProximoPasso = millis() + random(600, 1200); 
+  }
   
   fill(255);
   noStroke();
   textAlign(CENTER, CENTER);
-  textSize(18);
-  text(passos + " passos", cx + 60, cy + 120);
+  textSize(18 * escala);
+  text(passos + " passos", cx + 60 * escala, cy + 120 * escala);
 
-  imageMode (CENTER);
+  imageMode(CENTER);
   tint(temas[temaAtual]);
-  image (logo1, cx + 60, cy + 70, 40, 50);
+  image(logo1, cx + 60 * escala, cy + 70 * escala, 40 * escala, 50 * escala);
   noTint(); 
   
-// Icon e Texto Batimentos 
-if (millis() > tempoProximaMudanca) {
-  bpmAtual += int(random(-3, 3));
-  bpmAtual = constrain(bpmAtual, 70, 110);
-  tempoProximaMudanca = millis() + random(5000, 10000);
-}
+  // Icon e Texto Batimentos 
+  if (millis() > tempoProximaMudanca) {
+    bpmAtual += int(random(-3, 3));
+    bpmAtual = constrain(bpmAtual, 70, 110);
+    tempoProximaMudanca = millis() + random(5000, 10000);
+  }
   
   fill(255);
   noStroke();
   textAlign(CENTER, CENTER);
-  textSize(18);
-  text(bpmAtual + " bpm", cx - 60, cy + 120);
+  textSize(18 * escala);
+  text(bpmAtual + " bpm", cx - 60 * escala, cy + 120 * escala);
 
-  imageMode (CENTER);
+  imageMode(CENTER);
   tint(temas[temaAtual]); 
-  image (logo2, cx - 60, cy + 70, 55, 55);
+  image(logo2, cx - 60 * escala, cy + 70 * escala, 55 * escala, 55 * escala);
   noTint(); 
+}
+
 function touchStarted() {
-  startX = mouseX;
-  } 
+  temaAtual = (temaAtual + 1) % temas.length;
 }
