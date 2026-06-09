@@ -118,7 +118,7 @@ function preload()
 }
 
 function setup() {
-  let tamanho = min(windowWidth, 450);
+  let tamanho = min(windowWidth - 40, 450);
   var myCanvas = createCanvas(tamanho, tamanho + 50);
   myCanvas.parent("p5Canvas");
   angleMode(DEGREES);
@@ -134,7 +134,7 @@ temas = [
 }
 
 function windowResized() {
-  let tamanho = min(windowWidth, 450);
+  let tamanho = min(windowWidth - 40, 450);
   resizeCanvas(tamanho, tamanho + 50);
   cx = width/2;
   cy = height/2;
